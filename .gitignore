@@ -1,5 +1,7 @@
-/bin
-/obj
-.vs
+**/*.suo
+**/obj/
+**/bin/
+**/*.user
+**/*.vs/
 
-/dist
+/dist/**
