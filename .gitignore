@@ -4,4 +4,4 @@
 **/*.user
 **/*.vs/
 
-/dist/**
+/dist
