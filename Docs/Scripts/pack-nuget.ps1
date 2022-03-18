@@ -1,6 +1,8 @@
 cd ../..
 
-dotnet pack ./nuget.csproj --output "./dist"
+dotnet pack ./nuget.csproj `
+   --configuration Release `
+   --output "./dist"
 
 rm -R bin, obj
 
