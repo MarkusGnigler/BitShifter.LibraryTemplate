@@ -1,0 +1,25 @@
+name: .NET
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Pack dependencies
+      run: dotnet pack ./nuget.csproj --configuration Release --output "./dist"
+    - name: Publish
+#       run: dotnet nuget push "./dist*.nupkg" -Source https://git.pixeldance.at/pxd-intern/pixeldance.packages/api/v2/package
+#       run: dotnet nuget push "./dist*.nupkg" --api-key qz2jga8pl3dvn2akksyquwcs9ygggg4exypy3bhxy6w6x6 --source https://api.nuget.org/v3/index.json
+      run: dotnet nuget push "./dist*.nupkg" --source https://api.nuget.org/v3/index.json
