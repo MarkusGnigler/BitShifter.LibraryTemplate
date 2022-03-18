@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!--<TargetFramework>{TargetFramework}</TargetFramework>-->
+    <TargetFramework>net6.0</TargetFramework>
+    <!--#if (EnableSwaggerSupport)
+    <ImplicitUsings>enable</ImplicitUsings>
+    #else
+    <ImplicitUsings>disable</ImplicitUsings>
+    #endif-->
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>
