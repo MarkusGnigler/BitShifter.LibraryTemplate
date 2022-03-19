@@ -16,4 +16,4 @@ jobs:
     - name: Pack dependencies
       run: docker build -t pack --buil-arg Version=1.0.0
     - name: Publish
-      run: docker run pack --api-key $ApiKey --source https://api.nuget.org/v3/index.json
+      run: docker run pack --api-key $NUGETAPIKEY --source https://api.nuget.org/v3/index.json
