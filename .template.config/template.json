@@ -40,7 +40,7 @@
         {
             "modifiers": [
                 {
-                    "exclude": [ ".vs/**", "nuget.csproj", "dist/**", "Docs/Scripts/pack-nuget.ps1" ]
+                    "exclude": [ ".vs/**", "nuget.csproj", "dist/**", "Docs/Scripts/pack-nuget.ps1", "Dockerfile" ]
                 }
             ]
         }
