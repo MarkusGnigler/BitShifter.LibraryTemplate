@@ -15,7 +15,7 @@ ARG Version
 RUN dotnet pack nuget.csproj \
    --configuration Release \
    --output artifacts \
-   /p:IncludeSymbols=true /p:SymbolPackageFormat=snupkg \
+   # /p:IncludeSymbols=true /p:SymbolPackageFormat=snupkg \
    /p:Version=$Version
 
 # ARG ApiKey
