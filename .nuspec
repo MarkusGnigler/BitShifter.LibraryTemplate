@@ -1,0 +1,17 @@
+<package>
+  <metadata>
+    <id>MattDemo.HelloWorldTemplate</id>
+    <version>1.0</version>
+    <authors>Matt Ellis</authors>
+    <description>Hello World template</description>
+    <packageTypes>
+      <packageType name="Template" />
+    </packageTypes>
+  </metadata>
+  <files>
+    <file src=".template.config/template.json" target="content/.template.config" />
+    <file src="MyTemplate.csproj" target="content/" />
+    <file src="Program.cs" target="content/" />
+    <file src="Properties/*" target="content/Properties/" />
+  </files>
+</package>

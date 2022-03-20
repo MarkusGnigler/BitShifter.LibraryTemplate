@@ -7,10 +7,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{6588F973-3BE
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BitShifter.LibraryTemplate", "Src\BitShifter.LibraryTemplate\BitShifter.LibraryTemplate.csproj", "{C5DC9265-697E-48D7-A77B-A59BE1D21940}"
 EndProject
+#if tests
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{5654584F-3A23-4A67-8666-A6BF9DBEAC57}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BitShifter.LibraryTemplate.Tests", "Tests\BitShifter.LibraryTemplate.Tests\BitShifter.LibraryTemplate.Tests.csproj", "{5D70E882-33C7-49D3-8AC4-2F7EED72FE6D}"
 EndProject
+#endif
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{4BF85BDE-3379-4FFF-B49E-46BCD2023276}"
 	ProjectSection(SolutionItems) = preProject
 		Docs\index.md = Docs\index.md

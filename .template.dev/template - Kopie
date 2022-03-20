@@ -1,0 +1,143 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "Markus Gnigler",
+    "classifications": [
+        "Library",
+        "TDD", 
+        "Testing", 
+        "XUnit", 
+        "UnitTest"
+    ],
+    "groupIdentity": "BitShifter.LibraryTemplate",
+    "identity": "BitShifter.LibraryTemplate",
+    "name": "Base Library structure with Unit Tests",
+    "shortName": "library",
+    "defaultName": "LibraryTemplate",
+    "sourceName": "BitShifter.LibraryTemplate",
+    "tags": {
+        "language": "C#",
+        "type": "solution"
+    },
+    "preferNameDirectory": true,
+    "symbols": {
+        "framework": {
+            "type": "parameter",
+            "description": "The target framework for the project.",
+            "datatype": "choice",
+            "defaultValue": "net6.0",
+            "replaces": "{TargetFramework}",
+            "choices": [
+                {
+                    "choice": "net5.0"
+                },
+                {
+                    "choice": "net6.0"
+                }
+            ]
+        },
+        "docker": {
+            "type": "parameter",
+            "datatype": "bool",
+            "description": "Add Dockerfiles to test and publish the library.",
+            "defaultValue": "true"
+        },
+        "readme": {
+            "type": "parameter",
+            "datatype": "bool",
+            "defaultValue": "true",
+            "description": "Add a README.md markdown file describing the project."
+        },
+        "tests": {
+            "type": "parameter",
+            "datatype": "bool",
+            "defaultValue": "true",
+            "description": "Add a unit test project."
+        },
+        "github": {
+            "type": "parameter",
+            "datatype": "bool",
+            "description": "Add a GitHub action continuous integration pipeline.",
+            "defaultValue": "false"
+        }
+    },
+    "sources": [
+        {
+            "source": "./lib",
+            "target": "./",
+            "rename": {
+                ".gitignore": ".gitignore"
+            }
+        },
+        {
+            "modifiers": [
+                {
+                    "exclude": [ 
+                        ".vs/**", 
+                        ".git/**",
+                        ".github/**",
+                        ".gitignore",
+                        "README.md",
+                        "dist/**",
+                        "lib/**", 
+                        "nuget.csproj", 
+                        ".nuspec", 
+                        "Dockerfile",
+                        "workflows"
+                    ]
+                },
+                {
+                    "condition": "(!github && docker)",
+                    "exclude": 
+                    [
+                        ".github/**/*",
+                        "lib/.github/**/*"
+                    ]
+                },
+                {
+                    "condition": "(github && docker)",
+                    "source": "./lib/.github/workflows",
+                    "target": "./.github/workflows",
+                    "rename": {
+                        "publish.yml": "publish.yml"
+                    }
+                },
+                {
+                    "condition": "(!docker)",
+                    "exclude":
+                    [
+                        ".dockerignore",
+                        "Docs/Scripts/pack-and-publish.ps1",
+                        "Docs/Scripts/run-tests.ps1"
+                    ]
+                },
+                {
+                    "condition": "(docker)",
+                    "source": "./lib",
+                    "target": "./",
+                    "rename": {
+                        "Dockerfile.Pack": "Dockerfile.Pack"
+                    }
+                },
+                {
+                    "condition": "(!tests && docker)",
+                    "exclude": [
+                        "Tests/**/*",
+                        ".github/workflows/test.yml",
+                        "Docs/Scripts/run-tests.ps1",
+                        "Dockerfile.Test",
+                        "lib/Dockerfile.Test"
+                    ]
+                },
+                {
+                    "condition": "(tests && docker)",
+                    "source": "./lib",
+                    "target": "./",
+                    "rename": {
+                        "test.yml": "test.yml",
+                        "Dockerfile.Test": "Dockerfile.Test"
+                    }
+                }
+            ]
+        }
+    ]
+}

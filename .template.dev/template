@@ -10,7 +10,7 @@
     ],
     "groupIdentity": "BitShifter.LibraryTemplate",
     "identity": "BitShifter.LibraryTemplate",
-    "name": "Library structure with Unit Tests and Docker support",
+    "name": "Weel kown Library structure with Unit Tests",
     "shortName": "library",
     "defaultName": "LibraryTemplate",
     "sourceName": "BitShifter.LibraryTemplate",
@@ -74,14 +74,13 @@
                         ".git/**",
                         ".github/**",
                         ".gitignore",
-                        ".template.dev/**",
                         "README.md",
                         "dist/**",
                         "lib/**", 
                         "nuget.csproj", 
                         ".nuspec", 
-                        "workflows",
-                        "Dockerfile"
+                        "Dockerfile",
+                        "workflows"
                     ]
                 }
             ]
