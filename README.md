@@ -5,7 +5,7 @@ This project contains a starting library structure and ist distributed as dotnet
 Install the template from nuget.org
 
 ```
-
+dotnet new --install BitShifter.LibraryTemplate::1.0.1
 ```
 
 Create a new library with this template.

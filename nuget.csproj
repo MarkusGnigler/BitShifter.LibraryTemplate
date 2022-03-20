@@ -2,11 +2,11 @@
 
     <PropertyGroup>
         <PackageType>Template</PackageType>
-        <PackageVersion>1.0</PackageVersion>
+        <PackageVersion>1.0.1</PackageVersion>
         <PackageId>BitShifter.LibraryTemplate</PackageId>
         <Title>A Library with UnitTest Structure</Title>
         <Authors>Markus Gnigler</Authors>
-        <Description>Base library structure with unit tests for a project start.</Description>
+        <Description>Library structure with unit tests and docker support for a project start.</Description>
         <PackageTags>library;unit-tests;xunit;tdd</PackageTags>
         <TargetFramework>net6.0</TargetFramework>
 
