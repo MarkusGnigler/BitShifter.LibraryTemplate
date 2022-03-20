@@ -20,7 +20,7 @@ dotnet new library -o Company.Product
 BitShifter.LibraryTemplate/
 |
 |– Docs/
-|  |- Script/
+|  |- Scripts/
 |
 |- Src
 |   |- BitShifter.LibraryTemplate
