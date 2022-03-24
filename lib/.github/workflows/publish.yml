@@ -1,0 +1,19 @@
+name: .NET
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Pack dependencies
+      run: docker build --tag pack --build-arg Version=1.0.0 .
+    - name: Publish
+      run: docker run pack --skip-duplicate --api-key ${{secrets.NUGETAPIKEY}} --source https://api.nuget.org/v3/index.json

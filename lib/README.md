@@ -1,0 +1,2 @@
+
+# BitShifter LibraryTemplate
