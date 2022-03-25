@@ -38,28 +38,28 @@
     },
     "sources": [
         {
-            "source": "./lib",
+            "source": "./destination",
             "target": "./",
             "rename": {
                 ".gitignore": ".gitignore"
             }
         },
         {
-            "source": "./lib/.github/workflows",
+            "source": "./destination/.github/workflows",
             "target": "./.github/workflows",
             "rename": {
                 "publish.yml": "publish.yml"
             }
         },
         {
-            "source": "./lib",
+            "source": "./destination",
             "target": "./",
             "rename": {
                 "Dockerfile.Pack": "Dockerfile.Pack"
             }
         },
         {
-            "source": "./lib",
+            "source": "./destination",
             "target": "./",
             "rename": {
                 "test.yml": "test.yml",
@@ -77,7 +77,7 @@
                         ".template.dev/**",
                         "README.md",
                         "dist/**",
-                        "lib/**", 
+                        "destination/**", 
                         "nuget.csproj", 
                         ".nuspec", 
                         "workflows",
