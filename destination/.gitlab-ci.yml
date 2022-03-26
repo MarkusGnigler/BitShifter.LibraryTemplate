@@ -1,0 +1,33 @@
+image: docker:stable
+
+# services:
+#   - docker:dind
+before_script:
+  - dockerd &
+
+stages:
+  - test
+  - deploy
+
+test-library:
+  stage: test
+  only:
+    - master
+  script:
+    - docker build --tag test --file Dockerfile.Test .
+    - docker run --rm --volume coveragereport:/source/coveragereport test
+  artifacts:
+    paths:
+      - coveragereport
+    expire_in: 1 week
+
+release-library:
+  stage: deploy
+  only:
+    - master
+  script:
+    - docker build --tag publish --file Dockerfile.Pack .
+    # - dotnet nuget add source "$CI_SERVER_URL/api/v4/projects/$CI_PROJECT_ID/packages/nuget/index.json" --name gitlab --username gitlab-ci-token --password $CI_JOB_TOKEN --store-password-in-clear-text
+    # - dotnet nuget push "Src/BitShifter.ROP/bin/Release/*.nupkg" --source gitlab
+    
+    # - docker run --rm publish --api-key $NUGETAPIKEY --source "https://api.nuget.org/v3/index.json"
