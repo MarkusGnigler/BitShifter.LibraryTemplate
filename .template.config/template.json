@@ -43,7 +43,7 @@
         },
         "pipeline": {
             "type": "parameter",
-            "description": "Chose the test and release pipeline type.",
+            "description": "Choose the test and release pipeline type.",
             "datatype": "choice",
             "defaultValue": "github",
             "choices": [
@@ -74,69 +74,46 @@
                     ]
                 },
                 {
-                    "source": "./destination/",
-                    "target": "./",
-                    "include": [
-                        ".dockerignore",
-                        ".gitignore",
-                        "README.md",
-                        "nuget.csproj",
-                        "Dockerfile.Pack",
-                        "Dockerfile.Test"
-                    ]
-                },
-                {
-                    "condition": "(pipeline==\"github\")",
-                    "source": "./destination/",
-                    "target": "./",
-                    "include": [
-                        ".github/workflows/**"
-                    ]
-                },
-                {
-                    "condition": "(pipeline==\"gitlab\")",
-                    "source": "./destination/",
-                    "target": "./",
-                    "include": [
-                        ".gitlab-ci.yml",
-                        ".gitlab-ci-without-tests.yml"
-                    ]
-                },
-                // {
-                //     "condition": "(tests && pipeline==\"gitlab\")",
-                //     "source": "./destination/",
-                //     "target": "./",
-                //     "include": [
-                //         ".gitlab-ci-full.yml",
-                //         ".gitlab-ci-without-tests.yml"
-                //     ],
-                //     "rename": {
-                //         ".gitlab-ci.yml": ".gitlab-ci-full.yml"
-                //     }
-                // },
-                // {
-                //     "condition": "(!tests && pipeline==\"gitlab\")",
-                //     "source": "./destination/",
-                //     "target": "./",
-                //     "include": [
-                //         ".gitlab-ci-full.yml",
-                //         ".gitlab-ci-without-tests.yml"
-                //     ],
-                //     "rename": {
-                //         ".gitlab-ci.yml": ".gitlab-ci-whitout-tests.yml"
-                //     }
-                // },
-                {
                     "condition": "(!tests)",
                     "source": "./",
                     "exclude": [
                         "Tests/**/*",
                         "Dockerfile.Test",
+                        ".github/workflows/test.yml",
                         "Docs/Scripts/run-tests.ps1",
                         "destination/Dockerfile.Test",
                         "destination/.github/workflows/test.yml"
                     ]
                 }
+            ]
+        },
+        {
+            "source": "./destination/",
+            "target": "./",
+            "include": [
+                ".dockerignore",
+                ".gitignore",
+                "README.md",
+                "nuget.csproj",
+                "Dockerfile.Pack",
+                "Dockerfile.Test"
+            ]
+        },
+        {
+            "condition": "(pipeline==\"github\")",
+            "source": "./destination/",
+            "target": "./",
+            "include": [
+                ".github/workflows/**"
+            ]
+        },
+        {
+            "condition": "(pipeline==\"gitlab\")",
+            "source": "./destination/",
+            "target": "./",
+            "include": [
+                ".gitlab-ci.yml",
+                ".gitlab-ci-without-tests.yml"
             ]
         }
     ]

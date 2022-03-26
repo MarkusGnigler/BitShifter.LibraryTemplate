@@ -15,7 +15,7 @@ test-library:
     - master
   script:
     - docker build --tag test --file Dockerfile.Test .
-    - docker run --rm --volume coveragereport:/source/coveragereport test
+    - docker run --rm --volume $CI_PROJECT_DIR/coveragereport:/source/coveragereport test
   artifacts:
     paths:
       - coveragereport
@@ -29,5 +29,5 @@ release-library:
     - docker build --tag publish --file Dockerfile.Pack .
     # - dotnet nuget add source "$CI_SERVER_URL/api/v4/projects/$CI_PROJECT_ID/packages/nuget/index.json" --name gitlab --username gitlab-ci-token --password $CI_JOB_TOKEN --store-password-in-clear-text
     # - dotnet nuget push "Src/BitShifter.ROP/bin/Release/*.nupkg" --source gitlab
-    
-    # - docker run --rm publish --api-key $NUGETAPIKEY --source "https://api.nuget.org/v3/index.json"
+    # - docker run --rm publish --api-key $NUGET_APIKEY --source "https://api.nuget.org/v3/index.json"
+    - docker run --rm publish --api-key $NUGET_APIKEY --source "$CI_SERVER_URL/api/v4/projects/$CI_PROJECT_ID/packages/nuget/index.json"
