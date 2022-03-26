@@ -11,3 +11,6 @@ artifacts/
 *.sln.ide
 
 coveragereport/
+.template.config/
+.template.dev/
+destination/
