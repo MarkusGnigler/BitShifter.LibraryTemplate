@@ -5,6 +5,9 @@ This project contains a starting library structure and ist distributed as dotnet
 Install the template from nuget.org
 
 ```
+# latest
+dotnet new --install BitShifter.LibraryTemplate
+# select version
 dotnet new --install BitShifter.LibraryTemplate::1.0.1
 ```
 
@@ -29,7 +32,7 @@ Optionen:
                   bool - Optional
                   Standard: true
 
-  -p|--pipeline   Chose the test and release pipeline type.
+  -p|--pipeline   Choose the test and release pipeline type.
                       github
                       gitlab
                   Standard: github
