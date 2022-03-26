@@ -14,6 +14,27 @@ Create a new library with this template.
 dotnet new library -o Company.Product
 ```
 
+Available options are:
+
+```
+Library structure with Unit Tests and Docker support (C#)
+Autor: Markus Gnigler
+Optionen:
+  -f|--framework  The target framework for the project.
+                      net5.0
+                      net6.0
+                  Standard: net6.0
+
+  -t|--tests      Add a unit test project.
+                  bool - Optional
+                  Standard: true
+
+  -p|--pipeline   Chose the test and release pipeline type.
+                      github
+                      gitlab
+                  Standard: github
+```
+
 ### Folder structure
 
 ```
