@@ -20,7 +20,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{4BF85BDE-3
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{01797B93-576E-4D76-8083-6A4AFB2FE43B}"
 	ProjectSection(SolutionItems) = preProject
+		Docs\Scripts\pack-and-publish.ps1 = Docs\Scripts\pack-and-publish.ps1
 		Docs\Scripts\refresh-sln.ps1 = Docs\Scripts\refresh-sln.ps1
+#if tests
+		Docs\Scripts\run-tests.ps1 = Docs\Scripts\run-tests.ps1
+#endif
 	EndProjectSection
 EndProject
 Global

@@ -1,17 +1,22 @@
 <package>
   <metadata>
-    <id>MattDemo.HelloWorldTemplate</id>
-    <version>1.0</version>
-    <authors>Matt Ellis</authors>
-    <description>Hello World template</description>
+    <id>BitShifter.LibraryTemplate</id>
+    <version>1.0.01</version>
+    <authors>Markus Gnigler</authors>
+    <description>Library structure with unit tests and docker support for a project start.</description>
+    <readme>README.md</readme>
     <packageTypes>
       <packageType name="Template" />
     </packageTypes>
   </metadata>
-  <files>
+  <!-- <files>
     <file src=".template.config/template.json" target="content/.template.config" />
     <file src="MyTemplate.csproj" target="content/" />
     <file src="Program.cs" target="content/" />
     <file src="Properties/*" target="content/Properties/" />
+  </files> -->
+  <files>
+    <file src=".\**\*" />
+    <!-- <Content Include=".\**\*" Exlude=".\**\bin\**;.\**\obj\**;.\NuGet\**;nuget.csproj" /> -->
   </files>
 </package>
