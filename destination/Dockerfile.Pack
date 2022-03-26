@@ -6,13 +6,11 @@ COPY . .
 
 ENV DOTNET_CLI_TELEMETRY_OPTOUT=1
 
-ARG Version
-
-RUN dotnet pack \
-   --configuration Release \
-   --output artifacts \
-   /p:IncludeSymbols=true /p:SymbolPackageFormat=snupkg \
-   /p:Version=$Version
+RUN dotnet build *.sln && \
+   dotnet pack nuget.csproj \
+      # --no-build \
+      --configuration Release \
+      --output artifacts 
 
 ENTRYPOINT [ "dotnet", "nuget", "push", "artifacts/*.nupkg", "--skip-duplicate" ]
 CMD [ "--source", "https://api.nuget.org/v3/index.json" ]
