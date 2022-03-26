@@ -1,4 +1,4 @@
-name: Test
+name: test-library
 
 on:
   push:
@@ -16,4 +16,9 @@ jobs:
     - name: Build test image
       run: docker build --tag test --file Dockerfile.Test .
     - name: Run library tests
-      run: docker run --rm --volume ${PWD}/coveragereport:/source/coveragereport test
+      run: docker run --rm --volume $GITHUB_WORKSPACE/coveragereport:/source/coveragereport test
+    - name: Archive coverage report
+      uses: actions/upload-artifact@v3
+      with:
+        name: code-coverage-report
+        path: coveragereport
