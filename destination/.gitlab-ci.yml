@@ -6,9 +6,12 @@ before_script:
   - dockerd &
 
 stages:
+#if tests
   - test
+#endif
   - deploy
 
+#if tests
 test-library:
   stage: test
   only:
@@ -20,7 +23,7 @@ test-library:
     paths:
       - coveragereport
     expire_in: 1 week
-
+#endif
 release-library:
   stage: deploy
   only:

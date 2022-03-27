@@ -57,36 +57,7 @@
         }
     },
     "sources": [
-        {
-            "modifiers": [
-                {
-                    "exclude": [
-                        ".vs/**",
-                        ".git/**",
-                        ".github/**",
-                        ".dockerignore",
-                        ".gitignore",
-                        "README.md",
-                        "destination/**", 
-                        "nuget.csproj",
-                        "Dockerfile",
-                        ".template.dev/**"
-                    ]
-                },
-                {
-                    "condition": "(!tests)",
-                    "source": "./",
-                    "exclude": [
-                        "Tests/**/*",
-                        "Dockerfile.Test",
-                        ".github/workflows/test.yml",
-                        "Docs/Scripts/run-tests.ps1",
-                        "destination/Dockerfile.Test",
-                        "destination/.github/workflows/test.yml"
-                    ]
-                }
-            ]
-        },
+        
         {
             "source": "./destination/",
             "target": "./",
@@ -112,7 +83,61 @@
             "source": "./destination/",
             "target": "./",
             "include": [
-                ".gitlab-ci.yml"
+                ".gitlab-ci.yml",
+                ".gitlab-ci-without-tests.yml"
+            ]
+        },
+        // {
+        //     "condition": "(tests && pipeline==\"gitlab\")",
+        //     "source": "./destination/",
+        //     "target": "./",
+        //     "include": [
+        //         ".gitlab-ci-full.yml",
+        //         ".gitlab-ci-without-tests.yml"
+        //     ],
+        //     "rename": {
+        //         ".gitlab-ci.yml": ".gitlab-ci-full.yml"
+        //     }
+        // },
+        // {
+        //     "condition": "(!tests && pipeline==\"gitlab\")",
+        //     "source": "./destination/",
+        //     "target": "./",
+        //     "include": [
+        //         ".gitlab-ci-full.yml",
+        //         ".gitlab-ci-without-tests.yml"
+        //     ],
+        //     "rename": {
+        //         ".gitlab-ci.yml": ".gitlab-ci-whitout-tests.yml"
+        //     }
+        // },
+        {
+            "condition": "(!tests)",
+            "source": "./",
+            "exclude": [
+                "Tests/**/*",
+                "Dockerfile.Test",
+                "Docs/Scripts/run-tests.ps1",
+                "destination/Dockerfile.Test",
+                "destination/.github/workflows/test.yml"
+            ]
+        },
+        {
+            "modifiers": [
+                {
+                    "exclude": [
+                        ".vs/**",
+                        ".git/**",
+                        ".github/**",
+                        ".dockerignore",
+                        ".gitignore",
+                        "README.md",
+                        "destination/**", 
+                        "nuget.csproj",
+                        "Dockerfile",
+                        ".template.dev/**"
+                    ]
+                }
             ]
         }
     ]
