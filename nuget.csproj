@@ -1,18 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net5.0;net6.0</TargetFramework>
+        <TargetFramework>net5.0</TargetFramework>
         <PackageType>Template</PackageType>
-        <PackageVersion>1.0.1</PackageVersion>
+        <PackageVersion>1.0.2</PackageVersion>
         <Configuration>Release</Configuration>
         <PackageId>BitShifter.LibraryTemplate</PackageId>
         <Title>A Library with UnitTest Structure</Title>
         <Authors>Markus Gnigler</Authors>
         <Description>Library structure with unit tests and docker support for a project start.</Description>
         <PackageTags>library;unit-tests;xunit;tdd</PackageTags>
-        <IncludeSymbols>true</IncludeSymbols>
-        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <!-- <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat> -->
+        <!-- <PackageReadmeFile>README.md</PackageReadmeFile> -->
 
         <IncludeContentInPack>true</IncludeContentInPack>
         <IncludeBuildOutput>false</IncludeBuildOutput>
@@ -20,6 +20,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <None Include="README.md" Pack="true" PackagePath=""/>
         <Content Include=".\**\*" Exlude=".\**\bin\**;.\**\obj\**;.\artifacts\**;nuget.csproj" />
         <Compile Remove="**\*" />
     </ItemGroup>
