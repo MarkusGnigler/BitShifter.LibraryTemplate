@@ -14,6 +14,7 @@
     "shortName": "library",
     "defaultName": "LibraryTemplate",
     "sourceName": "BitShifter.LibraryTemplate",
+    "description": "Library structure with unit tests and docker support for a project start.",
     "tags": {
         "language": "C#",
         "type": "solution"
