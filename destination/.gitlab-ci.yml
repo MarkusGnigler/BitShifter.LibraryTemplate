@@ -28,9 +28,19 @@ release-library:
   stage: deploy
   only:
     - master
+  variables:
+    CI_REGISTRY_URL: $CI_SERVER_URL/api/v4/projects/$CI_PROJECT_ID/packages/nuget/index.json
   script:
-    - docker build --tag publish --file Dockerfile.Pack .
-    # - dotnet nuget add source "$CI_SERVER_URL/api/v4/projects/$CI_PROJECT_ID/packages/nuget/index.json" --name gitlab --username gitlab-ci-token --password $CI_JOB_TOKEN --store-password-in-clear-text
-    # - dotnet nuget push "Src/BitShifter.ROP/bin/Release/*.nupkg" --source gitlab
-    # - docker run --rm publish --api-key $NUGET_APIKEY --source "https://api.nuget.org/v3/index.json"
-    - docker run --rm publish --api-key $NUGET_APIKEY --source "$CI_SERVER_URL/api/v4/projects/$CI_PROJECT_ID/packages/nuget/index.json"
+    - |
+      docker build \
+        --tag publish \
+        --file Dockerfile.Pack \
+        --build-arg CI_REGISTRY_USER=$CI_REGISTRY_USER \
+        --build-arg CI_JOB_TOKEN=$CI_JOB_TOKEN \
+        --build-arg CI_REGISTRY_URL=$CI_REGISTRY_URL \
+        .
+    - |
+      docker run --rm \
+        publish \
+          --api-key $NUGET_APIKEY \
+          --source "$CI_SERVER_URL/api/v4/projects/$CI_PROJECT_ID/packages/nuget/index.json"
