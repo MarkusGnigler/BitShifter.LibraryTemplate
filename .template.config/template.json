@@ -96,7 +96,14 @@
                 ".gitignore",
                 "README.md",
                 "nuget.csproj",
-                "Dockerfile.Pack",
+                "Dockerfile.Pack"
+            ]
+        },
+        {
+            "condition": "(tests)",
+            "source": "./destination/",
+            "target": "./",
+            "include": [
                 "Dockerfile.Test"
             ]
         },
@@ -116,5 +123,32 @@
                 ".gitlab-ci.yml"
             ]
         }
-    ]
+    ],
+    "SpecialCustomOperations": {
+        "**/Dockerfile*": {
+            "operations": [
+              {
+                "type": "conditional",
+                "configuration": {
+                  "if": [ "#if" ],
+                  "else": [ "#else" ],
+                  "elseif": [ "#elseif" ],
+                  "endif": [ "#endif" ],
+                  "actions": [ "uncomment", "reduceComment" ],
+                  "trim": "true",
+                  "wholeLine": "true",
+                  "evaluator": "C++"
+                }
+              },
+              {
+                "type": "replacement",
+                "configuration": {
+                  "original": "#",
+                  "replacement": "",
+                  "id": "uncomment"
+                }
+              }
+            ]
+        }
+    }
 }
