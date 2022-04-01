@@ -17,7 +17,11 @@ ARG CI_REGISTRY_USER=''
 ARG CI_JOB_TOKEN=''
 ARG CI_REGISTRY_URL=''
 
-RUN dotnet nuget add source $CI_REGISTRY_URL --name gitlab --username $CI_REGISTRY_USER --password $CI_JOB_TOKEN --store-password-in-clear-text
+RUN dotnet nuget add source $CI_REGISTRY_URL \
+   --name gitlab \
+   --username $CI_REGISTRY_USER \
+   --password $CI_JOB_TOKEN \
+   --store-password-in-clear-text
 #endif
 
 ENTRYPOINT [ "dotnet", "nuget", "push", "artifacts/*.nupkg", "--skip-duplicate" ]
