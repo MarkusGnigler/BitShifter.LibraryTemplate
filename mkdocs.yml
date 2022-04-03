@@ -1,0 +1,21 @@
+site_name: LibraryTemplate
+site_url: https://www.nit-shifter.at
+nav:
+    - Home: index.md
+    - About: about.md
+
+theme:
+    name: material
+    palette:
+        scheme: slate
+        primary: cyan
+        
+    # palette: 
+    #     - scheme: default
+    #         toggle:
+    #             icon: material/toggle-switch-off-outline 
+    #             name: Switch to dark mode
+    #     - scheme: slate 
+    #         toggle:
+    #             icon: material/toggle-switch
+    #             name: Switch to light mode

@@ -71,7 +71,9 @@
                         "destination/**", 
                         "nuget.csproj",
                         "Dockerfile",
-                        ".template.dev/**"
+                        ".template.dev/**",
+                        "mkdocs.yml",
+                        "Docs/**/*"
                     ]
                 },
                 {
@@ -96,7 +98,9 @@
                 ".gitignore",
                 "README.md",
                 "nuget.csproj",
-                "Dockerfile.Pack"
+                "Dockerfile.Pack",
+                "mkdocs.yml",
+                "Docs/**/*"
             ]
         },
         {
