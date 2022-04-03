@@ -3,7 +3,7 @@
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
         <PackageType>Template</PackageType>
-        <PackageVersion>1.0.3</PackageVersion>
+        <PackageVersion>1.0.4</PackageVersion>
         <Configuration>Release</Configuration>
         <PackageId>BitShifter.LibraryTemplate</PackageId>
         <Title>A Library with UnitTest Structure</Title>
