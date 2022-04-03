@@ -14,9 +14,10 @@ ARG Version
 
 RUN dotnet pack nuget.csproj \
    --configuration Release \
-   --output artifacts \
+   --output artifacts
    # /p:IncludeSymbols=true /p:SymbolPackageFormat=snupkg \
-   /p:Version=$Version
+   # /p:Version=$Version \
+   # /p:PackageVersion=$MAJOR.$MINOR.$TRAVIS_BUILD_NUMBER
 
 # ARG ApiKey
 # RUN dotnet nuget SetApiKey ApiKey
