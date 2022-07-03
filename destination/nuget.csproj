@@ -11,6 +11,8 @@
         <PackageTags>Add your SEO tags [library;unit-tests;xunit;tdd]</PackageTags>
         <IncludeSymbols>true</IncludeSymbols>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
 
         <IncludeContentInPack>true</IncludeContentInPack>
         <IncludeBuildOutput>false</IncludeBuildOutput>
@@ -19,8 +21,8 @@
 
     <ItemGroup>
         <None Include="README.md" Pack="true" PackagePath=""/>
-        <Content Include=".\**\*" Exlude=".\**\bin\**;.\**\obj\**;.\artifacts\**;nuget.csproj" />
-        <Compile Remove="**\*" />
+        <Content Include=".\**\*" Exlude=".\Tests\**\*;.\**\bin\**;.\**\obj\**;.\artifacts\**" />
+        <Compile Remove=".\Tests\**\*;.\**\bin\**;.\**\obj\**;.\artifacts\**" />
     </ItemGroup>
 
 </Project>
