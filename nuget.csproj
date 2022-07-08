@@ -16,7 +16,7 @@
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
 
         <IncludeContentInPack>true</IncludeContentInPack>
-        <IncludeBuildOutput>false</IncludeBuildOutput>
+        <IncludeBuildOutput>true</IncludeBuildOutput>
         <ContentTargetFolders>content</ContentTargetFolders>
     </PropertyGroup>
 
