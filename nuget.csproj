@@ -3,7 +3,7 @@
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
         <PackageType>Template</PackageType>
-        <PackageVersion>1.0.6</PackageVersion>
+        <PackageVersion>1.0.7</PackageVersion>
         <Configuration>Release</Configuration>
         <PackageId>BitShifter.LibraryTemplate</PackageId>
         <Title>A Library with UnitTest Structure</Title>
@@ -16,15 +16,15 @@
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
 
         <IncludeContentInPack>true</IncludeContentInPack>
-        <IncludeBuildOutput>true</IncludeBuildOutput>
+        <IncludeBuildOutput>false</IncludeBuildOutput>
         <ContentTargetFolders>content</ContentTargetFolders>
     </PropertyGroup>
 
     <ItemGroup>
         <None Include="README.md" Pack="true" PackagePath=""/>
         <None Include="LICENSE.md" Pack="true" PackagePath=""/>
-        <Content Include=".\**\*" Exlude=".\Tests\**\*;.\**\bin\**;.\**\obj\**;.\artifacts\**" />
-        <Compile Remove=".\Tests\**\*;.\**\bin\**;.\**\obj\**;.\artifacts\**" />
+        <Content Include=".\**\*" Exlude=".\**\bin\**;.\**\obj\**;.\artifacts\**" />
+        <Compile Remove="**\*" />
     </ItemGroup>
 
 </Project>
